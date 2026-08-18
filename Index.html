@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0d14">
+  <title>Juan Esteban León Mera | Full Stack Developer</title>
+  <meta name="description" content="Portafolio de Juan Esteban León Mera, desarrollador Full Stack Junior enfocado en Python, Django, FastAPI, JavaScript, React, APIs REST, bases de datos y Docker.">
+  <meta property="og:title" content="Juan Esteban León Mera | Full Stack Developer">
+  <meta property="og:description" content="Portafolio de Juan Esteban León Mera, desarrollador Full Stack Junior enfocado en Python, Django, FastAPI, React y APIs REST.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080b11'/%3E%3Cpath d='M9 11l-5 5 5 5' stroke='%236d7cff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23 11l5 5-5 5' stroke='%234de0a5' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#080b11;
+      --surface:#0e131c;
+      --surface-2:#121925;
+      --surface-3:#171f2d;
+      --text:#f4f7fb;
+      --muted:#9ca8ba;
+      --muted-2:#687589;
+      --line:rgba(255,255,255,.09);
+      --accent:#6d7cff;
+      --accent-2:#4de0a5;
+      --accent-soft:rgba(109,124,255,.13);
+      --green-soft:rgba(77,224,165,.10);
+      --shadow:0 25px 70px rgba(0,0,0,.32);
+      --mono:'JetBrains Mono',monospace;
+      --sans:'DM Sans',sans-serif;
+      --max:1120px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    ::selection{background:rgba(109,124,255,.35)}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+    /* Ambient background */
+    .ambient{position:fixed;inset:0;pointer-events:none;z-index:-2;overflow:hidden;background:var(--bg)}
+    .blob{position:absolute;border-radius:50%;filter:blur(10px);will-change:transform}
+    .blob-1{width:46vw;height:46vw;left:-8%;top:-14%;background:radial-gradient(circle,rgba(109,124,255,.16),transparent 70%);animation:drift1 26s ease-in-out infinite alternate}
+    .blob-2{width:38vw;height:38vw;right:-10%;top:14%;background:radial-gradient(circle,rgba(77,224,165,.11),transparent 70%);animation:drift2 32s ease-in-out infinite alternate}
+    .blob-3{width:42vw;height:42vw;left:28%;bottom:-22%;background:radial-gradient(circle,rgba(109,124,255,.09),transparent 70%);animation:drift3 38s ease-in-out infinite alternate}
+    @keyframes drift1{from{transform:translate(0,0)}to{transform:translate(6vw,5vh)}}
+    @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-5vw,7vh)}}
+    @keyframes drift3{from{transform:translate(0,0)}to{transform:translate(4vw,-6vh)}}
+    .grid-bg{position:absolute;inset:0;opacity:.24;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(8,11,17,.76);backdrop-filter:blur(18px)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-family:var(--mono);font-size:.88rem;font-weight:600;letter-spacing:-.02em}
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+    .nav-links a{padding:8px 11px;border-radius:7px;transition:.2s}
+    .nav-links a:hover{background:var(--surface-2);color:var(--text)}
+    .cv-btn{background:var(--text)!important;color:#080b11!important;font-weight:600;margin-left:8px}
+    .cv-btn:hover{background:var(--accent)!important;color:white!important}
+    .menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 10px;cursor:pointer}
+
+    /* Hero */
+    .hero{padding:96px 0 76px;display:grid;grid-template-columns:1.12fr .88fr;gap:60px;align-items:center}
+    .eyebrow{font-family:var(--mono);font-size:.73rem;color:var(--accent-2);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .eyebrow:before{content:'';width:28px;height:1px;background:var(--accent-2)}
+    h1{font-size:clamp(3rem,6.8vw,5.7rem);line-height:.98;letter-spacing:-.065em;max-width:760px}
+    h1 .gradient{background:linear-gradient(110deg,#fff 5%,#b9c1ff 48%,#6d7cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{font-size:1.08rem;color:var(--muted);max-width:670px;margin-top:28px}
+    .hero-copy strong{color:var(--text);font-weight:600}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:9px;border:1px solid var(--line);font-family:var(--mono);font-size:.76rem;font-weight:500;transition:.2s}
+    .btn.primary{background:var(--text);color:#080b11;border-color:var(--text)}
+    .btn.primary:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
+    .btn.secondary:hover{border-color:rgba(109,124,255,.5);background:var(--accent-soft);transform:translateY(-2px)}
+    .availability{margin-top:24px;display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.69rem;color:var(--accent-2);padding:7px 10px;border:1px solid rgba(77,224,165,.18);background:var(--green-soft);border-radius:999px}
+    .live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 5px rgba(77,224,165,.08)}
+
+    .terminal{background:#0b0f16;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;transform:rotate(1deg);transition:transform .35s}
+    .terminal:hover{transform:rotate(0) translateY(-4px)}
+    .terminal-top{height:43px;background:#111722;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 15px;gap:7px}
+    .dot{width:9px;height:9px;border-radius:50%;background:#343d4b}.dot:first-child{background:#ff6b68}.dot:nth-child(2){background:#e4bd5a}.dot:nth-child(3){background:#53c88c}
+    .terminal-title{margin-left:7px;font-family:var(--mono);font-size:.67rem;color:var(--muted-2)}
+    .copy-btn{margin-left:auto;background:none;border:1px solid var(--line);color:var(--muted-2);font-family:var(--mono);font-size:.63rem;padding:4px 9px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:.2s}
+    .copy-btn:hover,.copy-btn.copied{border-color:var(--accent-2);color:var(--accent-2)}
+    .copy-btn svg{width:10px;height:10px}
+    .terminal-body{padding:25px;font-family:var(--mono);font-size:.77rem;color:#d5dbe5;min-height:285px}
+    .prompt{color:var(--accent-2)}
+    .key{color:#91a0ff}.string{color:#78d8a9}.number{color:#e9c77a}
+    .terminal-line{margin-bottom:5px;white-space:pre-wrap;opacity:0}
+    .terminal-line.shown{opacity:1;transition:opacity .3s ease}
+    .terminal-space{height:13px}
+    .cursor{display:inline-block;width:6px;height:13px;background:#d5dbe5;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    /* Section */
+    section{padding:88px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:35px}
+    .section-kicker{font-family:var(--mono);font-size:.7rem;color:var(--accent);margin-bottom:8px}
+    h2{font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.05;letter-spacing:-.045em}
+    .section-intro{max-width:530px;color:var(--muted);font-size:.94rem}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(14,19,28,.65)}
+    .stat{padding:25px 22px;border-right:1px solid var(--line)}.stat:last-child{border-right:0}
+    .stat strong{display:block;font-size:1.55rem;letter-spacing:-.04em}.stat span{font-family:var(--mono);font-size:.65rem;color:var(--muted-2)}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .panel{background:linear-gradient(145deg,rgba(18,25,37,.9),rgba(10,14,21,.9));border:1px solid var(--line);border-radius:14px;padding:28px}
+    .panel p{color:var(--muted);font-size:.94rem}.panel p+p{margin-top:14px}.panel strong{color:var(--text)}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+    .fact{padding:13px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.018)}
+    .fact small{display:block;font-family:var(--mono);font-size:.61rem;color:var(--muted-2);margin-bottom:3px}.fact span{font-size:.83rem}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .project{position:relative;padding:27px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(150deg,rgba(18,25,37,.95),rgba(10,14,21,.9));transition:.25s;overflow:hidden}
+    .project:after{content:'';position:absolute;inset:auto -20% -60% 45%;height:190px;background:radial-gradient(circle,rgba(109,124,255,.10),transparent 68%);pointer-events:none}
+    .project:hover{transform:translateY(-5px);border-color:rgba(109,124,255,.35);box-shadow:0 22px 55px rgba(0,0,0,.2)}
+    .project.featured{grid-column:span 2;background:linear-gradient(135deg,rgba(27,33,53,.98),rgba(12,17,25,.96));border-color:rgba(109,124,255,.23)}
+    .project-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:.66rem;color:var(--muted-2)}
+    .project-number{color:var(--accent)}
+    .project h3{font-size:1.22rem;margin:19px 0 10px;letter-spacing:-.025em}.project.featured h3{font-size:1.5rem}
+    .project p{font-size:.87rem;color:var(--muted);max-width:700px}
+    .project-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.tag{font-family:var(--mono);font-size:.61rem;color:#c5ccda;background:#141c29;border:1px solid var(--line);padding:5px 8px;border-radius:6px}
+    .project-link{display:inline-flex;margin-top:20px;font-family:var(--mono);font-size:.68rem;color:var(--accent)}.project-link:hover{text-decoration:underline}
+
+    /* Skills */
+    .skill-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .skill-card{border:1px solid var(--line);border-radius:14px;padding:25px;background:var(--surface)}
+    .skill-card h3{font-family:var(--mono);font-size:.72rem;color:var(--muted-2);font-weight:500;margin-bottom:16px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:7px 10px;border-radius:7px;background:var(--surface-2);border:1px solid var(--line);font-family:var(--mono);font-size:.67rem;color:#d8deea}
+    .chip.primary{border-color:rgba(109,124,255,.25);background:var(--accent-soft);color:#cbd1ff}
+    .skill-card + .skill-card{margin-top:18px}
+
+    /* Timeline */
+    .timeline{border-left:1px solid var(--line);margin-left:8px}.timeline-item{position:relative;padding:0 0 28px 28px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:'';position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}.timeline-date{font-family:var(--mono);font-size:.63rem;color:var(--accent);margin-bottom:5px}.timeline h3{font-size:1rem}.timeline p{font-size:.82rem;color:var(--muted);margin-top:4px}
+
+    /* Contact */
+    .contact{position:relative;overflow:hidden;border:1px solid rgba(109,124,255,.22);border-radius:18px;background:radial-gradient(circle at 80% 20%,rgba(109,124,255,.15),transparent 35%),linear-gradient(145deg,#12192a,#0c1119);padding:55px}
+    .contact h2{max-width:600px}.contact p{color:var(--muted);max-width:610px;margin-top:15px}.contact-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.contact-link{padding:10px 13px;border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:.67rem;background:rgba(255,255,255,.025)}.contact-link:hover{border-color:rgba(109,124,255,.5);background:var(--accent-soft)}
+    footer{padding:30px 0 45px;color:var(--muted-2);font-family:var(--mono);font-size:.62rem;display:flex;justify-content:space-between;gap:20px}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none}.project,.terminal,.btn{transition:none}.terminal{transform:none}.blob{animation:none!important}}
+
+    @media(max-width:850px){
+      .hero{grid-template-columns:1fr;gap:40px;padding-top:70px}.terminal{max-width:720px;transform:none}.about-grid,.skill-layout{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.project.featured{grid-column:span 1}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .nav-links{display:none;position:absolute;top:72px;left:20px;right:20px;background:#0c1119;border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-links a{padding:11px 12px}.cv-btn{margin-left:0}.menu{display:block}
+    }
+    @media(max-width:560px){.container{width:min(var(--max),calc(100% - 28px))}.hero{padding:58px 0 55px}h1{font-size:clamp(2.65rem,15vw,4rem)}.hero-copy{font-size:.98rem}.stats{grid-template-columns:1fr}.stat{border-right:0!important;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.facts{grid-template-columns:1fr}.panel,.project,.skill-card{padding:21px}.contact{padding:30px 23px}section{padding:66px 0}.section-head{display:block}.section-intro{margin-top:14px}.terminal-body{font-size:.68rem;padding:19px;min-height:245px}footer{display:block}.foot-right{margin-top:7px}}
+  </style>
+</head>
+<body>
+  <div class="ambient"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="grid-bg"></div></div>
+
+  <header>
+    <nav class="container">
+      <a class="brand" href="#inicio"><span>juan</span>.dev</a>
+      <button class="menu" id="menu" aria-label="Abrir menú">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#sobre-mi">sobre-mi</a>
+        <a href="#proyectos">proyectos</a>
+        <a href="#habilidades">habilidades</a>
+        <a href="#experiencia">experiencia</a>
+        <a href="#contacto">contacto</a>
+        <a class="cv-btn" href="cv.pdf" download>Descargar CV</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero container" style="border-top:0">
+      <div>
+        <div class="eyebrow">FULL STACK DEVELOPER · JUNIOR</div>
+        <h1>Del problema al código.<br><span class="gradient">Del código a la solución.</span></h1>
+        <p class="hero-copy">
+          Ingeniero de Sistemas egresado de Unicomfacauca, enfocado en <strong>Python, Django, FastAPI, JavaScript, React y APIs REST</strong>. También trabajo con bases de datos, Docker e integración de soluciones de IA e IoT.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#proyectos">Ver proyectos <span>↓</span></a>
+          <a class="btn secondary" href="cv.pdf" download>Descargar CV ↗</a>
+          <a class="btn secondary" href="https://github.com/JuanLeon23" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="availability"><span class="live-dot"></span> Disponible para oportunidades junior</div>
+      </div>
+
+      <div class="terminal" aria-label="Resumen técnico">
+        <div class="terminal-top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="terminal-title">juan@portfolio ~ /perfil</span>
+          <button class="copy-btn" id="copyBtn" type="button" aria-label="Copiar comando">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+            <span id="copyLabel">copiar</span>
+          </button>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line shown"><span class="prompt">$</span> <span id="typedCmd"></span><span class="cursor" id="typeCursor"></span></div>
+          <div class="terminal-space"></div>
+          <div class="terminal-line" data-line>{</div>
+          <div class="terminal-line" data-line>  <span class="key">"rol"</span>: <span class="string">"Full Stack Developer Junior"</span>,</div>
+          <div class="terminal-line" data-line>  <span class="key">"backend"</span>: [<span class="string">"Python"</span>, <span class="string">"Django"</span>, <span class="string">"FastAPI"</span>],</div>
+          <div class="terminal-line" data-line>  <span class="key">"frontend"</span>: [<span class="string">"JavaScript"</span>, <span class="string">"React"</span>],</div>
+          <div class="terminal-line" data-line>  <span class="key">"datos"</span>: [<span class="string">"SQL"</span>, <span class="string">"MySQL"</span>, <span class="string">"MongoDB"</span>, <span class="string">"DynamoDB"</span>],</div>
+          <div class="terminal-line" data-line>  <span class="key">"tools"</span>: [<span class="string">"Docker"</span>, <span class="string">"Git"</span>, <span class="string">"Postman"</span>],</div>
+          <div class="terminal-line" data-line>  <span class="key">"ubicacion"</span>: <span class="string">"Cauca, Colombia"</span></div>
+          <div class="terminal-line" data-line>}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="resumen">
+      <div class="stats">
+        <div class="stat"><strong>4+</strong><span>proyectos destacados</span></div>
+        <div class="stat"><strong>99.60%</strong><span>precisión en AgroSense</span></div>
+        <div class="stat"><strong>5.214</strong><span>imágenes procesadas</span></div>
+        <div class="stat"><strong>7 meses</strong><span>pasantía de desarrollo</span></div>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">01 / SOBRE MÍ</div><h2>Backend como base.<br>Full Stack como objetivo.</h2></div>
+          <p class="section-intro">Me interesa construir productos completos: desde la lógica y las APIs hasta la interfaz y la integración con datos, IA o hardware.</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel reveal">
+            <p>Soy <strong>Ingeniero de Sistemas egresado de Unicomfacauca</strong>. Mi experiencia se ha concentrado en desarrollo backend con Django, FastAPI y Java/Spring Boot, diseño de APIs REST y construcción de soluciones que llegan hasta la etapa de despliegue.</p>
+            <p>He trabajado además con <strong>LLMs, visión por computador e IoT</strong>, integrando estas tecnologías dentro de sistemas de software en lugar de tratarlas como componentes aislados.</p>
+          </div>
+          <div class="panel reveal">
+            <div class="facts">
+              <div class="fact"><small>ENFOQUE</small><span>Full Stack / Backend</span></div>
+              <div class="fact"><small>UBICACIÓN</small><span>Cauca, Colombia</span></div>
+              <div class="fact"><small>BACKEND</small><span>Python · Django · FastAPI</span></div>
+              <div class="fact"><small>FRONTEND</small><span>JavaScript · React</span></div>
+              <div class="fact"><small>DATOS</small><span>SQL · MySQL · MongoDB · DynamoDB</span></div>
+              <div class="fact"><small>DEVOPS</small><span>Docker · Git</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">02 / PROYECTOS</div><h2>Lo que he construido.</h2></div>
+          <p class="section-intro">Proyectos donde backend, datos, IA e IoT trabajan como partes de un mismo sistema.</p>
+        </div>
+        <div class="projects">
+          <article class="project featured reveal">
+            <div class="project-top"><span class="project-number">01 / TESIS</span><span>2026 · 8 meses</span></div>
+            <h3>AgroSense — diagnóstico fitosanitario inteligente</h3>
+            <p>Sistema para diagnóstico de cultivos de banano. Desarrollé el backend REST con FastAPI, el dashboard en Streamlit y el modelo de visión por computador EfficientNet-B0. Los servicios fueron orquestados con Docker Compose y el sistema integra un módulo IoT de monitoreo de suelo.</p>
+            <div class="project-meta"><span class="tag">FastAPI</span><span class="tag">PyTorch</span><span class="tag">EfficientNet-B0</span><span class="tag">Docker Compose</span><span class="tag">Streamlit + Plotly</span><span class="tag">ESP32-C3 / Modbus RTU</span></div>
+            <div class="project-meta"><span class="tag">5.214 imágenes</span><span class="tag">10 clases</span><span class="tag">99.60% precisión</span><span class="tag">Mención de honor</span></div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-top"><span class="project-number">02 / PROFESIONAL</span><span>2024 · 4 meses</span></div>
+            <h3>Backend & LLM — Satimo</h3>
+            <p>Integraciones backend con modelos de lenguaje para automatizar flujos de análisis y procesamiento de datos, además de scripts de automatización en Python para tareas repetitivas. Trabajo remoto con un equipo distribuido en inglés.</p>
+            <div class="project-meta"><span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">APIs</span><span class="tag">Automatización</span></div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-top"><span class="project-number">03 / INVESTIGACIÓN</span><span>Unicomfacauca</span></div>
+            <h3>Detección de semáforos con YOLO</h3>
+            <p>Proyecto del Semillero de Inteligencia Artificial para detección de semáforos, con procesamiento de datos para reportes técnicos y más de 90% de precisión en pruebas de campo.</p>
+            <div class="project-meta"><span class="tag">YOLO</span><span class="tag">OpenCV</span><span class="tag">Python</span></div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-top"><span class="project-number">04 / PASANTÍA</span><span>2026 · 7 meses</span></div>
+            <h3>Monitoreo Edaphoclimático — Las Mercedes</h3>
+            <p>Backend en Django para alertas con umbrales configurables, recomendaciones agronómicas, exportación de datos y API REST para la ingesta desde hardware IoT.</p>
+            <div class="project-meta"><span class="tag">Django</span><span class="tag">API REST</span><span class="tag">SQLite</span><span class="tag">Chart.js</span><span class="tag">ESP32 / Modbus RTU</span></div>
+            <a class="project-link" href="https://github.com/TecnologiasVirtuales/LasMercedes" target="_blank" rel="noopener">→ Ver repositorio en GitHub</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="habilidades">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">03 / STACK</div><h2>Herramientas con las que trabajo.</h2></div>
+          <p class="section-intro">Un stack orientado a construir APIs y aplicaciones completas, con experiencia adicional en IA, datos e IoT.</p>
+        </div>
+        <div class="skill-layout">
+          <div>
+            <div class="skill-card reveal"><h3>backend / frameworks</h3><div class="chips"><span class="chip primary">Python</span><span class="chip primary">Django</span><span class="chip primary">FastAPI</span><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">JavaScript</span><span class="chip">React</span></div></div>
+            <div class="skill-card reveal"><h3>datos / herramientas</h3><div class="chips"><span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">SQLite</span><span class="chip">MongoDB</span><span class="chip">DynamoDB</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Postman</span><span class="chip">Grafana</span><span class="chip">Power BI / DAX</span></div></div>
+          </div>
+          <div>
+            <div class="skill-card reveal"><h3>machine learning</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">TensorFlow / Keras</span><span class="chip">EfficientNet-B0</span><span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">Pandas</span></div></div>
+            <div class="skill-card reveal"><h3>iot / hardware</h3><div class="chips"><span class="chip">ESP32</span><span class="chip">Modbus RTU</span><span class="chip">Arduino</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">04 / RECORRIDO</div><h2>Experiencia y evolución.</h2></div>
+          <p class="section-intro">Una trayectoria que combina desarrollo, investigación universitaria y proyectos aplicados.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal"><div class="timeline-date">2026 · 7 meses</div><h3>Pasantía de desarrollo — SENA / Las Mercedes</h3><p>Backend Django, API REST, alertas, datos e integración con hardware IoT.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date">2026</div><h3>AgroSense — tesis de grado</h3><p>FastAPI, visión por computador, Docker Compose, dashboard e IoT. Mención de honor.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date">2025</div><h3>Certificaciones</h3><p>ML Terminology and Process (AWS) y análisis con SQL: extracción, transformación y optimización (Ecosistem Tech).</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date">2025</div><h3>Semillero de Inteligencia Artificial — Unicomfacauca</h3><p>Investigación aplicada con YOLO, OpenCV y procesamiento de datos.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date">2024 · 4 meses</div><h3>Backend & LLM — Satimo</h3><p>Integraciones con modelos de lenguaje y automatización en Python para un equipo remoto.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="contact reveal">
+          <div class="section-kicker">05 / CONTACTO</div>
+          <h2>¿Tienes una vacante o un proyecto interesante?</h2>
+          <p>Estoy buscando una oportunidad como desarrollador Full Stack Junior y me interesa seguir creciendo especialmente en backend, APIs y construcción de productos.</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:juanlmsr23@gmail.com">✉ juanlmsr23@gmail.com</a>
+            <a class="contact-link" href="tel:+573117985389">☏ 311 798 5389</a>
+            <a class="contact-link" href="https://github.com/JuanLeon23" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="contact-link" href="https://linkedin.com/in/juan-esteban-leon-mera-511872362" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="contact-link" href="cv.pdf" download>CV.pdf ↓</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container"><span>Juan Esteban León Mera</span><span class="foot-right">Popayán, Cauca — Colombia · 2026</span></footer>
+
+  <script>
+    const menu=document.getElementById('menu');
+    const nav=document.getElementById('navLinks');
+    menu.addEventListener('click',()=>nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+    const items=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(entries=>entries.forEach(e=>{
+        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
+      }),{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+      items.forEach(i=>io.observe(i));
+    }else{items.forEach(i=>i.classList.add('visible'))}
+
+    // Terminal: typing effect + staggered JSON reveal
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const typedEl = document.getElementById('typedCmd');
+    const cursorEl = document.getElementById('typeCursor');
+    const dataLines = document.querySelectorAll('.terminal-line[data-line]');
+    const command = 'curl juan.dev/perfil';
+
+    function revealLines(){
+      dataLines.forEach((line, idx) => {
+        setTimeout(() => line.classList.add('shown'), idx * 60);
+      });
+    }
+
+    if(prefersReduced){
+      typedEl.textContent = command;
+      dataLines.forEach(l => l.classList.add('shown'));
+      if(cursorEl) cursorEl.style.display = 'none';
+    } else {
+      let i = 0;
+      (function typeChar(){
+        if(i < command.length){
+          typedEl.textContent += command[i];
+          i++;
+          setTimeout(typeChar, 34);
+        } else {
+          setTimeout(() => { cursorEl.style.display = 'none'; revealLines(); }, 250);
+        }
+      })();
+    }
+
+    const copyBtn = document.getElementById('copyBtn');
+    const copyLabel = document.getElementById('copyLabel');
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText('curl juan.dev/perfil');
+        copyBtn.classList.add('copied');
+        copyLabel.textContent = 'copiado';
+        setTimeout(() => { copyBtn.classList.remove('copied'); copyLabel.textContent = 'copiar'; }, 1600);
+      }catch(e){
+        copyLabel.textContent = 'error';
+      }
+    });
+  </script>
+</body>
+</html>
