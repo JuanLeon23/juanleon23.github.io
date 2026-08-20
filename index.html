@@ -67,6 +67,8 @@
     .nav-links a:hover{background:var(--surface-2);color:var(--text)}
     .cv-btn{background:var(--text)!important;color:#080b11!important;font-weight:600;margin-left:8px}
     .cv-btn:hover{background:var(--accent)!important;color:white!important}
+    .lang-btn{background:none;border:1px solid var(--line);color:var(--muted);font-family:var(--mono);font-size:.68rem;padding:8px 11px;border-radius:7px;cursor:pointer;margin-left:6px;transition:.2s}
+    .lang-btn:hover{border-color:var(--accent);color:var(--text)}
     .menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 10px;cursor:pointer}
 
     /* Hero */
@@ -170,12 +172,13 @@
       <a class="brand" href="#inicio"><span>juan</span>.dev</a>
       <button class="menu" id="menu" aria-label="Abrir menú">☰</button>
       <div class="nav-links" id="navLinks">
-        <a href="#sobre-mi">sobre-mi</a>
-        <a href="#proyectos">proyectos</a>
-        <a href="#habilidades">habilidades</a>
-        <a href="#experiencia">experiencia</a>
-        <a href="#contacto">contacto</a>
-        <a class="cv-btn" href="cv.pdf" download>Descargar CV</a>
+        <a href="#sobre-mi" data-en="about">sobre-mi</a>
+        <a href="#proyectos" data-en="projects">proyectos</a>
+        <a href="#habilidades" data-en="skills">habilidades</a>
+        <a href="#experiencia" data-en="experience">experiencia</a>
+        <a href="#contacto" data-en="contact">contacto</a>
+        <a class="cv-btn" href="cv.pdf" download data-en="Download CV">Descargar CV</a>
+        <button class="lang-btn" id="langToggle" type="button" aria-label="Switch language / Cambiar idioma">EN</button>
       </div>
     </nav>
   </header>
@@ -184,16 +187,16 @@
     <section class="hero container" style="border-top:0">
       <div>
         <div class="eyebrow">FULL STACK DEVELOPER · JUNIOR</div>
-        <h1>Del problema al código.<br><span class="gradient">Del código a la solución.</span></h1>
-        <p class="hero-copy">
+        <h1 data-en='From problem to code.<br><span class="gradient">From code to solution.</span>'>Del problema al código.<br><span class="gradient">Del código a la solución.</span></h1>
+        <p class="hero-copy" data-en='Systems Engineer graduated from Unicomfacauca, focused on <strong>Python, Django, FastAPI, Java, JavaScript and React</strong>. I also work with databases, Docker, and integrating AI and IoT solutions.'>
           Ingeniero de Sistemas egresado de Unicomfacauca, enfocado en <strong>Python, Django, FastAPI, Java, JavaScript y React</strong>. También trabajo con bases de datos, Docker e integración de soluciones de IA e IoT.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="#proyectos">Ver proyectos <span>↓</span></a>
-          <a class="btn secondary" href="cv.pdf" download>Descargar CV ↗</a>
+          <a class="btn primary" href="#proyectos" data-en='View projects <span>↓</span>'>Ver proyectos <span>↓</span></a>
+          <a class="btn secondary" href="cv.pdf" download data-en="Download CV ↗">Descargar CV ↗</a>
           <a class="btn secondary" href="https://github.com/JuanLeon23" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
-        <div class="availability"><span class="live-dot"></span> Disponible para oportunidades junior</div>
+        <div class="availability" data-en='<span class="live-dot"></span> Available for junior opportunities'><span class="live-dot"></span> Disponible para oportunidades junior</div>
       </div>
 
       <div class="terminal" aria-label="Resumen técnico">
@@ -202,19 +205,19 @@
           <span class="terminal-title">juan@portfolio ~ /perfil</span>
           <button class="copy-btn" id="copyBtn" type="button" aria-label="Copiar comando">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
-            <span id="copyLabel">copiar</span>
+            <span id="copyLabel" data-en="copy">copiar</span>
           </button>
         </div>
         <div class="terminal-body">
           <div class="terminal-line shown"><span class="prompt">$</span> <span id="typedCmd"></span><span class="cursor" id="typeCursor"></span></div>
           <div class="terminal-space"></div>
           <div class="terminal-line" data-line>{</div>
-          <div class="terminal-line" data-line>  <span class="key">"rol"</span>: <span class="string">"Full Stack Developer Junior"</span>,</div>
+          <div class="terminal-line" data-line>  <span class="key" data-en="&quot;role&quot;">"rol"</span>: <span class="string">"Full Stack Developer Junior"</span>,</div>
           <div class="terminal-line" data-line>  <span class="key">"backend"</span>: [<span class="string">"Python"</span>, <span class="string">"Django"</span>, <span class="string">"FastAPI"</span>, <span class="string">"Java"</span>, <span class="string">"Spring Boot"</span>],</div>
           <div class="terminal-line" data-line>  <span class="key">"frontend"</span>: [<span class="string">"JavaScript"</span>, <span class="string">"React"</span>],</div>
-          <div class="terminal-line" data-line>  <span class="key">"datos"</span>: [<span class="string">"SQL"</span>, <span class="string">"MySQL"</span>, <span class="string">"MongoDB"</span>, <span class="string">"DynamoDB"</span>],</div>
+          <div class="terminal-line" data-line>  <span class="key" data-en="&quot;data&quot;">"datos"</span>: [<span class="string">"SQL"</span>, <span class="string">"MySQL"</span>, <span class="string">"MongoDB"</span>, <span class="string">"DynamoDB"</span>],</div>
           <div class="terminal-line" data-line>  <span class="key">"tools"</span>: [<span class="string">"Docker"</span>, <span class="string">"Git"</span>, <span class="string">"Postman"</span>, <span class="string">"Grafana"</span>, <span class="string">"Prometheus"</span>],</div>
-          <div class="terminal-line" data-line>  <span class="key">"ubicacion"</span>: <span class="string">"Cauca, Colombia"</span></div>
+          <div class="terminal-line" data-line>  <span class="key" data-en="&quot;location&quot;">"ubicacion"</span>: <span class="string">"Cauca, Colombia"</span></div>
           <div class="terminal-line" data-line>}</div>
         </div>
       </div>
@@ -222,31 +225,31 @@
 
     <section class="container reveal" id="resumen">
       <div class="stats">
-        <div class="stat"><strong>4+</strong><span>proyectos destacados</span></div>
-        <div class="stat"><strong>99.60%</strong><span>precisión en AgroSense</span></div>
-        <div class="stat"><strong>5.214</strong><span>imágenes procesadas</span></div>
-        <div class="stat"><strong>7 meses</strong><span>pasantía de desarrollo</span></div>
+        <div class="stat"><strong>5+</strong><span data-en="featured projects">proyectos destacados</span></div>
+        <div class="stat"><strong>99.60%</strong><span data-en="AgroSense accuracy">precisión en AgroSense</span></div>
+        <div class="stat"><strong>5.214</strong><span data-en="images processed">imágenes procesadas</span></div>
+        <div class="stat"><strong>2</strong><span data-en="development internships — SENA">pasantías de desarrollo — SENA</span></div>
       </div>
     </section>
 
     <section id="sobre-mi">
       <div class="container">
         <div class="section-head">
-          <div><div class="section-kicker">01 / SOBRE MÍ</div><h2>Backend como base.<br>Full Stack como objetivo.</h2></div>
-          <p class="section-intro">Me interesa construir productos completos: desde la lógica y las APIs hasta la interfaz y la integración con datos, IA o hardware.</p>
+          <div><div class="section-kicker" data-en="01 / ABOUT">01 / SOBRE MÍ</div><h2 data-en="Backend as foundation.<br>Full Stack as the goal.">Backend como base.<br>Full Stack como objetivo.</h2></div>
+          <p class="section-intro" data-en="I like building complete products: from the logic and APIs to the interface and integration with data, AI, or hardware.">Me interesa construir productos completos: desde la lógica y las APIs hasta la interfaz y la integración con datos, IA o hardware.</p>
         </div>
         <div class="about-grid">
           <div class="panel reveal">
-            <p>Soy <strong>Ingeniero de Sistemas egresado de Unicomfacauca</strong>. Mi experiencia se ha concentrado en desarrollo backend con Django, FastAPI y Java/Spring Boot, diseño de APIs REST y construcción de soluciones que llegan hasta la etapa de despliegue.</p>
-            <p>He trabajado además con <strong>LLMs, visión por computador e IoT</strong>, integrando estas tecnologías dentro de sistemas de software en lugar de tratarlas como componentes aislados.</p>
+            <p data-en='I’m a <strong>Systems Engineer graduated from Unicomfacauca</strong>. My experience has centered on backend development with Django, FastAPI, and Java/Spring Boot, REST API design, and building solutions all the way through deployment.'>Soy <strong>Ingeniero de Sistemas egresado de Unicomfacauca</strong>. Mi experiencia se ha concentrado en desarrollo backend con Django, FastAPI y Java/Spring Boot, diseño de APIs REST y construcción de soluciones que llegan hasta la etapa de despliegue.</p>
+            <p data-en='I’ve also worked with <strong>LLMs, computer vision, and IoT</strong>, integrating these technologies into software systems rather than treating them as isolated components.'>He trabajado además con <strong>LLMs, visión por computador e IoT</strong>, integrando estas tecnologías dentro de sistemas de software en lugar de tratarlas como componentes aislados.</p>
           </div>
           <div class="panel reveal">
             <div class="facts">
-              <div class="fact"><small>ENFOQUE</small><span>Full Stack / Backend</span></div>
-              <div class="fact"><small>UBICACIÓN</small><span>Cauca, Colombia</span></div>
+              <div class="fact"><small data-en="FOCUS">ENFOQUE</small><span>Full Stack / Backend</span></div>
+              <div class="fact"><small data-en="LOCATION">UBICACIÓN</small><span>Cauca, Colombia</span></div>
               <div class="fact"><small>BACKEND</small><span>Python · Django · FastAPI · Java · Spring Boot</span></div>
               <div class="fact"><small>FRONTEND</small><span>JavaScript · React</span></div>
-              <div class="fact"><small>DATOS</small><span>SQL · MySQL · MongoDB · DynamoDB</span></div>
+              <div class="fact"><small data-en="DATA">DATOS</small><span>SQL · MySQL · MongoDB · DynamoDB</span></div>
               <div class="fact"><small>DEVOPS</small><span>Docker · Git</span></div>
             </div>
           </div>
@@ -257,38 +260,45 @@
     <section id="proyectos">
       <div class="container">
         <div class="section-head">
-          <div><div class="section-kicker">02 / PROYECTOS</div><h2>Lo que he construido.</h2></div>
-          <p class="section-intro">Proyectos donde backend, datos, IA e IoT trabajan como partes de un mismo sistema.</p>
+          <div><div class="section-kicker" data-en="02 / PROJECTS">02 / PROYECTOS</div><h2 data-en="What I’ve built.">Lo que he construido.</h2></div>
+          <p class="section-intro" data-en="Projects where backend, data, AI, and IoT work as parts of the same system.">Proyectos donde backend, datos, IA e IoT trabajan como partes de un mismo sistema.</p>
         </div>
         <div class="projects">
           <article class="project featured reveal">
-            <div class="project-top"><span class="project-number">01 / TESIS</span><span>2026 · 8 meses</span></div>
-            <h3>AgroSense — diagnóstico fitosanitario inteligente</h3>
-            <p>Sistema para diagnóstico de cultivos de banano. Desarrollé el backend REST con FastAPI, el dashboard en Streamlit y el modelo de visión por computador EfficientNet-B0. Los servicios fueron orquestados con Docker Compose y el sistema integra un módulo IoT de monitoreo de suelo.</p>
+            <div class="project-top"><span class="project-number" data-en="01 / THESIS">01 / TESIS</span><span data-en="2026 · 8 months">2026 · 8 meses</span></div>
+            <h3 data-en="AgroSense — intelligent crop-disease diagnosis">AgroSense — diagnóstico fitosanitario inteligente</h3>
+            <p data-en="System for diagnosing banana crop diseases. I built the REST backend with FastAPI, the Streamlit dashboard, and the EfficientNet-B0 computer vision model. Services were orchestrated with Docker Compose, and the system integrates a soil-monitoring IoT module.">Sistema para diagnóstico de cultivos de banano. Desarrollé el backend REST con FastAPI, el dashboard en Streamlit y el modelo de visión por computador EfficientNet-B0. Los servicios fueron orquestados con Docker Compose y el sistema integra un módulo IoT de monitoreo de suelo.</p>
             <div class="project-meta"><span class="tag">FastAPI</span><span class="tag">PyTorch</span><span class="tag">EfficientNet-B0</span><span class="tag">Docker Compose</span><span class="tag">Streamlit + Plotly</span><span class="tag">ESP32-C3 / Modbus RTU</span></div>
-            <div class="project-meta"><span class="tag">5.214 imágenes</span><span class="tag">10 clases</span><span class="tag">99.60% precisión</span><span class="tag">Mención de honor</span></div>
+            <div class="project-meta"><span class="tag" data-en="5,214 images">5.214 imágenes</span><span class="tag" data-en="10 classes">10 clases</span><span class="tag" data-en="99.60% accuracy">99.60% precisión</span><span class="tag" data-en="Honor mention">Mención de honor</span></div>
           </article>
 
           <article class="project reveal">
-            <div class="project-top"><span class="project-number">02 / PROFESIONAL</span><span>2024 · 4 meses</span></div>
+            <div class="project-top"><span class="project-number" data-en="02 / PROFESSIONAL">02 / PROFESIONAL</span><span data-en="2024 · 4 months">2024 · 4 meses</span></div>
             <h3>Backend & LLM — Satimo</h3>
-            <p>Integraciones backend con modelos de lenguaje para automatizar flujos de análisis y procesamiento de datos, además de scripts de automatización en Python para tareas repetitivas. Trabajo remoto con un equipo distribuido en inglés.</p>
+            <p data-en="Backend integrations with language models to automate analysis and data-processing workflows, plus Python automation scripts for repetitive tasks. Remote work with an English-speaking distributed team.">Integraciones backend con modelos de lenguaje para automatizar flujos de análisis y procesamiento de datos, además de scripts de automatización en Python para tareas repetitivas. Trabajo remoto con un equipo distribuido en inglés.</p>
             <div class="project-meta"><span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">APIs</span><span class="tag">Automatización</span></div>
           </article>
 
           <article class="project reveal">
-            <div class="project-top"><span class="project-number">03 / INVESTIGACIÓN</span><span>Unicomfacauca</span></div>
-            <h3>Detección de semáforos con YOLO</h3>
-            <p>Proyecto del Semillero de Inteligencia Artificial para detección de semáforos, con procesamiento de datos para reportes técnicos y más de 90% de precisión en pruebas de campo.</p>
+            <div class="project-top"><span class="project-number" data-en="03 / RESEARCH">03 / INVESTIGACIÓN</span><span>Unicomfacauca</span></div>
+            <h3 data-en="Traffic light detection with YOLO">Detección de semáforos con YOLO</h3>
+            <p data-en="Project for the AI Research Group (Semillero de Inteligencia Artificial) on traffic light detection, including data processing for technical reports, reaching over 90% precision in field tests.">Proyecto del Semillero de Inteligencia Artificial para detección de semáforos, con procesamiento de datos para reportes técnicos y más de 90% de precisión en pruebas de campo.</p>
             <div class="project-meta"><span class="tag">YOLO</span><span class="tag">OpenCV</span><span class="tag">Python</span></div>
           </article>
 
           <article class="project reveal">
-            <div class="project-top"><span class="project-number">04 / PASANTÍA</span><span>2026 · 7 meses</span></div>
-            <h3>Monitoreo Edaphoclimático — Las Mercedes</h3>
-            <p>Backend en Django para alertas con umbrales configurables, recomendaciones agronómicas, exportación de datos y API REST para la ingesta desde hardware IoT.</p>
+            <div class="project-top"><span class="project-number" data-en="04 / INTERNSHIP">04 / PASANTÍA</span><span data-en="2026 · 8 months">2026 · 8 meses</span></div>
+            <h3 data-en="Tecnoparque Colombia — node-based management system">Tecnoparque Colombia — sistema de gestión por nodos</h3>
+            <p data-en="Django system to manage ideas, workshops, committees, and projects across Tecnoparque Colombia’s 12 regional nodes, with role-based access control: the Expert only sees ideas from their tech line and node, the Administrator manages workshops and committees for their node, and the Dinamizador manages users for their own node. When a committee is approved, the system automatically creates the project and assigns it to the matching expert by tech line and node, with strategy and sub-strategy already linked. I also built automatic project reassignment when an expert changes node, a documents tab with evidence and minutes per project, and improvements to the Django admin panel.">Sistema en Django para gestionar ideas, talleres, comités y proyectos de los 12 nodos regionales de Tecnoparque Colombia, con control de acceso por rol: el Experto solo ve ideas de su línea tecnológica y nodo, el Administrativo gestiona talleres y comités de su nodo, y el Dinamizador administra los usuarios del suyo. Al aprobar un comité, el sistema crea el proyecto automáticamente y lo asigna al experto correspondiente según línea tecnológica y nodo, con su estrategia y subestrategia ya asociadas. También construí el flujo de reasignación automática de proyectos cuando un experto cambia de nodo, una pestaña de documentos con evidencias y actas por proyecto, y mejoras en el panel de administración de Django.</p>
+            <div class="project-meta"><span class="tag">Django</span><span class="tag" data-en="Role-based access control (RBAC)">Control de acceso por rol (RBAC)</span><span class="tag" data-en="DB migrations">Migraciones de BD</span><span class="tag">Django Admin</span><span class="tag" data-en="Multi-tenant by node">Multi-tenant por nodo</span></div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-top"><span class="project-number" data-en="05 / INTERNSHIP">05 / PASANTÍA</span><span data-en="2026 · 7 months">2026 · 7 meses</span></div>
+            <h3 data-en="Soil & Climate Monitoring — Las Mercedes">Monitoreo Edaphoclimático — Las Mercedes</h3>
+            <p data-en="Django backend for configurable-threshold alerts, agronomic recommendations, data export, and a REST API for ingesting data from IoT hardware.">Backend en Django para alertas con umbrales configurables, recomendaciones agronómicas, exportación de datos y API REST para la ingesta desde hardware IoT.</p>
             <div class="project-meta"><span class="tag">Django</span><span class="tag">API REST</span><span class="tag">SQLite</span><span class="tag">Chart.js</span><span class="tag">ESP32 / Modbus RTU</span></div>
-            <a class="project-link" href="https://github.com/TecnologiasVirtuales/LasMercedes" target="_blank" rel="noopener">→ Ver repositorio en GitHub</a>
+            <a class="project-link" href="https://github.com/TecnologiasVirtuales/LasMercedes" target="_blank" rel="noopener" data-en="→ View repository on GitHub">→ Ver repositorio en GitHub</a>
           </article>
         </div>
       </div>
@@ -296,16 +306,16 @@
     <section id="habilidades">
       <div class="container">
         <div class="section-head">
-          <div><div class="section-kicker">03 / STACK</div><h2>Herramientas con las que trabajo.</h2></div>
-          <p class="section-intro">Un stack orientado a construir APIs y aplicaciones completas, con experiencia adicional en IA, datos e IoT.</p>
+          <div><div class="section-kicker">03 / STACK</div><h2 data-en="Tools I work with.">Herramientas con las que trabajo.</h2></div>
+          <p class="section-intro" data-en="A stack oriented toward building APIs and full applications, with additional experience in AI, data, and IoT.">Un stack orientado a construir APIs y aplicaciones completas, con experiencia adicional en IA, datos e IoT.</p>
         </div>
         <div class="skill-layout">
           <div>
             <div class="skill-card reveal"><h3>backend / frameworks</h3><div class="chips"><span class="chip primary">Python</span><span class="chip primary">Django</span><span class="chip primary">FastAPI</span><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">JavaScript</span><span class="chip">React</span></div></div>
-            <div class="skill-card reveal"><h3>datos / herramientas</h3><div class="chips"><span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">SQLite</span><span class="chip">MongoDB</span><span class="chip">DynamoDB</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Postman</span><span class="chip">Grafana</span><span class="chip">Prometheus</span><span class="chip">Power BI / DAX</span></div></div>
+            <div class="skill-card reveal"><h3 data-en="data / tools">datos / herramientas</h3><div class="chips"><span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">SQLite</span><span class="chip">MongoDB</span><span class="chip">DynamoDB</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Postman</span><span class="chip">Grafana</span><span class="chip">Prometheus</span><span class="chip">Power BI / DAX</span></div></div>
           </div>
           <div>
-            <div class="skill-card reveal"><h3>testing / calidad</h3><div class="chips"><span class="chip">Pruebas unitarias</span><span class="chip">Pruebas de integración</span><span class="chip">Pruebas funcionales</span><span class="chip">Pruebas de rendimiento</span></div></div>
+            <div class="skill-card reveal"><h3 data-en="testing / quality">testing / calidad</h3><div class="chips"><span class="chip" data-en="Unit testing">Pruebas unitarias</span><span class="chip" data-en="Integration testing">Pruebas de integración</span><span class="chip" data-en="Functional testing">Pruebas funcionales</span><span class="chip" data-en="Performance testing">Pruebas de rendimiento</span></div></div>
             <div class="skill-card reveal"><h3>machine learning</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">EfficientNet-B0</span><span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">Pandas</span><span class="chip">PySpark</span></div></div>
             <div class="skill-card reveal"><h3>iot / hardware</h3><div class="chips"><span class="chip">ESP32</span><span class="chip">Modbus RTU</span><span class="chip">Arduino</span></div></div>
           </div>
@@ -316,15 +326,16 @@
     <section id="experiencia">
       <div class="container">
         <div class="section-head">
-          <div><div class="section-kicker">04 / RECORRIDO</div><h2>Experiencia y evolución.</h2></div>
-          <p class="section-intro">Una trayectoria que combina desarrollo, investigación universitaria y proyectos aplicados.</p>
+          <div><div class="section-kicker" data-en="04 / JOURNEY">04 / RECORRIDO</div><h2 data-en="Experience &amp; growth.">Experiencia y evolución.</h2></div>
+          <p class="section-intro" data-en="A path that combines development, university research, and applied projects.">Una trayectoria que combina desarrollo, investigación universitaria y proyectos aplicados.</p>
         </div>
         <div class="timeline">
-          <div class="timeline-item reveal"><div class="timeline-date">2026 · 7 meses</div><h3>Pasantía de desarrollo — SENA / Las Mercedes</h3><p>Backend Django, API REST, alertas, datos e integración con hardware IoT.</p></div>
-          <div class="timeline-item reveal"><div class="timeline-date">2026</div><h3>AgroSense — tesis de grado</h3><p>FastAPI, visión por computador, Docker Compose, dashboard e IoT. Mención de honor.</p></div>
-          <div class="timeline-item reveal"><div class="timeline-date">2025</div><h3>Certificaciones</h3><p>ML Terminology and Process (AWS) y análisis con SQL: extracción, transformación y optimización (Ecosistem Tech).</p></div>
-          <div class="timeline-item reveal"><div class="timeline-date">2025</div><h3>Semillero de Inteligencia Artificial — Unicomfacauca</h3><p>Investigación aplicada con YOLO, OpenCV y procesamiento de datos.</p></div>
-          <div class="timeline-item reveal"><div class="timeline-date">2024 · 4 meses</div><h3>Backend & LLM — Satimo</h3><p>Integraciones con modelos de lenguaje y automatización en Python para un equipo remoto.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date" data-en="2026 · 8 months">2026 · 8 meses</div><h3 data-en="SENA Internship — Tecnoparque Colombia">Pasantía SENA — Tecnoparque Colombia</h3><p data-en="Django system with role-based access control and multi-node management for the country’s 12 Tecnoparques.">Sistema en Django con control de acceso por rol y gestión multi-nodo para los 12 Tecnoparques del país.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date" data-en="2026 · 7 months">2026 · 7 meses</div><h3 data-en="Development Internship — SENA / Las Mercedes">Pasantía de desarrollo — SENA / Las Mercedes</h3><p data-en="Django backend, REST API, alerts, data, and IoT hardware integration.">Backend Django, API REST, alertas, datos e integración con hardware IoT.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date">2026</div><h3 data-en="AgroSense — thesis project">AgroSense — tesis de grado</h3><p data-en="FastAPI, computer vision, Docker Compose, dashboard, and IoT. Honor mention.">FastAPI, visión por computador, Docker Compose, dashboard e IoT. Mención de honor.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date">2025</div><h3 data-en="Certifications">Certificaciones</h3><p data-en="ML Terminology and Process (AWS) and SQL analysis: extraction, transformation, and optimization (Ecosistem Tech).">ML Terminology and Process (AWS) y análisis con SQL: extracción, transformación y optimización (Ecosistem Tech).</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date">2025</div><h3>Semillero de Inteligencia Artificial — Unicomfacauca</h3><p data-en="Applied research with YOLO, OpenCV, and data processing.">Investigación aplicada con YOLO, OpenCV y procesamiento de datos.</p></div>
+          <div class="timeline-item reveal"><div class="timeline-date" data-en="2024 · 4 months">2024 · 4 meses</div><h3>Backend & LLM — Satimo</h3><p data-en="Language-model integrations and Python automation for a remote team.">Integraciones con modelos de lenguaje y automatización en Python para un equipo remoto.</p></div>
         </div>
       </div>
     </section>
@@ -332,15 +343,15 @@
     <section id="contacto">
       <div class="container">
         <div class="contact reveal">
-          <div class="section-kicker">05 / CONTACTO</div>
-          <h2>¿Tienes una vacante o un proyecto interesante?</h2>
-          <p>Estoy buscando una oportunidad como desarrollador Full Stack Junior y me interesa seguir creciendo especialmente en backend, APIs y construcción de productos.</p>
+          <div class="section-kicker" data-en="05 / CONTACT">05 / CONTACTO</div>
+          <h2 data-en="Got an opening or an interesting project?">¿Tienes una vacante o un proyecto interesante?</h2>
+          <p data-en="I’m looking for an opportunity as a Junior Full Stack Developer, and I’m especially interested in growing further in backend, APIs, and product building.">Estoy buscando una oportunidad como desarrollador Full Stack Junior y me interesa seguir creciendo especialmente en backend, APIs y construcción de productos.</p>
           <div class="contact-links">
             <a class="contact-link" href="mailto:juanlmsr23@gmail.com">✉ juanlmsr23@gmail.com</a>
             <a class="contact-link" href="tel:+573117985389">☏ 311 798 5389</a>
             <a class="contact-link" href="https://github.com/JuanLeon23" target="_blank" rel="noopener">GitHub ↗</a>
             <a class="contact-link" href="https://linkedin.com/in/juan-esteban-leon-mera-511872362" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a class="contact-link" href="cv.pdf" download>CV.pdf ↓</a>
+            <a class="contact-link" href="cv.pdf" download data-en="Resume.pdf ↓">CV.pdf ↓</a>
           </div>
         </div>
       </div>
@@ -354,6 +365,24 @@
     const nav=document.getElementById('navLinks');
     menu.addEventListener('click',()=>nav.classList.toggle('open'));
     nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+    // ---- Language toggle (ES/EN) ----
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'es';
+    try{ currentLang = localStorage.getItem('portfolio-lang') || 'es'; }catch(e){}
+
+    function applyLang(lang){
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if(!el.hasAttribute('data-es')) el.setAttribute('data-es', el.innerHTML);
+        el.innerHTML = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+      });
+      document.documentElement.lang = lang;
+      langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+      currentLang = lang;
+      try{ localStorage.setItem('portfolio-lang', lang); }catch(e){}
+    }
+    langToggle.addEventListener('click', () => applyLang(currentLang === 'es' ? 'en' : 'es'));
+    if(currentLang === 'en') applyLang('en');
 
     const items=document.querySelectorAll('.reveal');
     if('IntersectionObserver' in window){
@@ -399,10 +428,10 @@
       try{
         await navigator.clipboard.writeText('curl juan.dev/perfil');
         copyBtn.classList.add('copied');
-        copyLabel.textContent = 'copiado';
-        setTimeout(() => { copyBtn.classList.remove('copied'); copyLabel.textContent = 'copiar'; }, 1600);
+        copyLabel.textContent = currentLang === 'en' ? 'copied' : 'copiado';
+        setTimeout(() => { copyBtn.classList.remove('copied'); copyLabel.textContent = currentLang === 'en' ? 'copy' : 'copiar'; }, 1600);
       }catch(e){
-        copyLabel.textContent = 'error';
+        copyLabel.textContent = currentLang === 'en' ? 'error' : 'error';
       }
     });
   </script>
